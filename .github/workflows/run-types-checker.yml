@@ -8,8 +8,8 @@ on:
     branches: [ dev ]
 
 env:
-  NODE_VERSION: '16'
-  PYTHON_VERSION: '3.7'
+  NODE_VERSION: '18'
+  PYTHON_VERSION: '3.9'
 
 permissions:
   contents: read
@@ -22,11 +22,11 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Install python deps
-        run: pip install --verbose -r requirements.txt -r dev-requirements.txt -e.
+        run: pip install -r requirements.txt -r dev-requirements.txt -e.
       - name: Install node deps
         run: npm ci
       - name: Check types
