@@ -18,18 +18,28 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Install setuptools
-        run: pip install -U setuptools
-      - name: Install python deps
-        run: pip install -r requirements.txt -r dev-requirements.txt -e.
-      - name: Install node deps
-        run: npm ci
-      - name: Check types
-        run: npx pyright
+      - uses: actions/checkout@v3
+      - name: Building CKAN docker image
+        run: docker-compose build ckan
+      - name: Spinning up docker-compose stack
+        run: |
+          docker-compose up -d
+      - name: Installing HDX/CKAN PY3 dev-requirements
+        run: docker-compose exec -T ckan pip install -r /srv/ckan/dev-requirements.txt
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - uses: actions/checkout@v2
+    #   - uses: actions/setup-python@v2
+    #     with:
+    #       python-version: ${{ env.PYTHON_VERSION }}
+    #   - uses: actions/setup-node@v3
+    #     with:
+    #       node-version: ${{ env.NODE_VERSION }}
+    #   - name: Install setuptools
+    #     run: pip install -U setuptools
+    #   - name: Install python deps
+    #     run: pip install -r requirements.txt -r dev-requirements.txt -e.
+    #   - name: Install node deps
+    #     run: npm ci
+    #   - name: Check types
+    #     run: npx pyright
