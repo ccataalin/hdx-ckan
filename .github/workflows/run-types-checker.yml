@@ -27,8 +27,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Upgrade SetupTools
+        run: pip install --upgrade setuptools
+
       - name: Install Python deps
-        run: pip install setuptools==65.5.0 wheel==0.38.0 -r requirements.txt -r dev-requirements.txt -e.
+        run: pip install -r requirements.txt -r dev-requirements.txt -e.
 
       - name: Install node deps
         run: npm ci
