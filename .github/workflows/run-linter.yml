@@ -19,6 +19,5 @@ jobs:
           pip install ruff
 
       - name: Run the linter
-        continue-on-error: true
         run: |
           ruff check

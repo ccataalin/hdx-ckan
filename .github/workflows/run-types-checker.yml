@@ -1,5 +1,12 @@
-name: Check types
-on: [pull_request]
+name: HDX/CKAN types checker
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ dev ]
+
 env:
   NODE_VERSION: '16'
   PYTHON_VERSION: '3.7'
