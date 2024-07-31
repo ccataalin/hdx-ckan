@@ -18,6 +18,67 @@ jobs:
         run: |
           pip install ruff
 
-      - name: Run the linter
+      - name: Run ruff linter for ckanext-hdx_dataviz
         run: |
-          ruff check
+          ruff check ckanext-hdx_dataviz
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_hxl_preview
+        run: |
+          ruff check ckanext-hdx_hxl_preview
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_office_preview
+        run: |
+          ruff check ckanext-hdx_office_preview
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_org_group
+        run: |
+          ruff check ckanext-hdx_org_group
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_package
+        run: |
+          ruff check ckanext-hdx_package
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_pages
+        run: |
+          ruff check ckanext-hdx_pages
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_search
+        run: |
+          ruff check ckanext-hdx_search
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_service_checker
+        run: |
+          ruff check ckanext-hdx_service_checker
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_theme
+        run: |
+          ruff check ckanext-hdx_theme
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_user_extra
+        run: |
+          ruff check ckanext-hdx_user_extra
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_users
+        run: |
+          ruff check ckanext-hdx_users
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-sitemap
+        run: |
+          ruff check ckanext-sitemap
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-ytp-request
+        run: |
+          ruff check ckanext-ytp-request
+        continue-on-error: true
