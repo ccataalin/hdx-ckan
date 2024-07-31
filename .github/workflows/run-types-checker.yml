@@ -21,6 +21,6 @@ jobs:
       - name: Installing HDX/CKAN PY3 dev-requirements
         run: docker-compose exec -T ckan pip install -r /srv/ckan/dev-requirements.txt
       - name: Install node deps
-        run: docker-compose exec -T npm ci
+        run: docker-compose exec -T ckan npm ci
       - name: Check types
-        run: docker-compose exec -T npx pyright
+        run: docker-compose exec -T ckan npx pyright
