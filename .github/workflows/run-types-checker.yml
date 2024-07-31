@@ -9,7 +9,7 @@ on:
 
 env:
   NODE_VERSION: '18'
-  PYTHON_VERSION: '3.9'
+  PYTHON_VERSION: '3.10'
 
 permissions:
   contents: read
