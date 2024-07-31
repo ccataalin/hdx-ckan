@@ -8,7 +8,7 @@ on:
     branches: [ dev ]
 
 env:
-  NODE_VERSION: '16'
+  NODE_VERSION: '18'
   PYTHON_VERSION: '3.10'
 
 permissions:
@@ -18,9 +18,7 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
@@ -30,7 +28,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install Python deps
-        run: pip install -r requirements.txt -r dev-requirements.txt -e.
+        run: pip install setuptools -r requirements.txt -r dev-requirements.txt -e.
 
       - name: Install node deps
         run: npm ci
