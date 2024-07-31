@@ -1,0 +1,23 @@
+name: HDX/CKAN linter
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ dev ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ruff linter
+        run: |
+          pip install ruff
+
+      - name: Run the linter
+        run: |
+          ruff check
