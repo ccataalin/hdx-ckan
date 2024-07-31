@@ -30,6 +30,9 @@ jobs:
       - name: Upgrade SetupTools
         run: pip install --upgrade setuptools
 
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+
       - name: Install Python deps
         run: pip install -r requirements.txt -r dev-requirements.txt -e.
 
