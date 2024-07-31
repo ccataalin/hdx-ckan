@@ -29,9 +29,47 @@ jobs:
           curl -sL https://deb.nodesource.com/setup_22.x | bash -
           apt-get install -y nodejs
           npm install -g npm
+          npm install -g pyright
           "
-      - name: Install node deps
-        run: docker-compose exec -T ckan npm ci --prefix /srv/ckan
 
-      - name: Check types
-        run: docker-compose exec -T ckan npx pyright /srv/ckan
+      - name: Check types for ckan
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckan
+
+      - name: Check types for ckanext-hdx_dataviz
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_dataviz
+
+      - name: Check types for ckanext-hdx_hxl_preview
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_hxl_preview
+
+      - name: Check types for ckanext-hdx_office_preview
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_office_preview
+
+      - name: Check types for ckanext-hdx_org_group
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_org_group
+
+      - name: Check types for ckanext-hdx_package
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_package
+
+      - name: Check types for ckanext-hdx_pages
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_pages
+
+      - name: Check types for ckanext-hdx_search
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_search
+
+      - name: Check types for ckanext-hdx_service_checker
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_service_checker
+
+      - name: Check types for ckanext-hdx_theme
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_theme
+
+      - name: Check types for ckanext-hdx_user_extra
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_user_extra
+
+      - name: Check types for ckanext-hdx_users
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_users
+
+      - name: Check types for ckanext-sitemap
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-sitemap
+
+      - name: Check types for ckanext-ytp-request
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-ytp-request
