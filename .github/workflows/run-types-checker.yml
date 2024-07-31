@@ -33,7 +33,7 @@ jobs:
           "
 
       - name: Check types for ckan
-        run: docker-compose exec -T ckan pyright /srv/ckan/ckan
+        run: docker-compose exec -T ckan pyright -p /srv/ckan/pyproject.toml /srv/ckan/ckan
 
       - name: Check types for ckanext-hdx_dataviz
         run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_dataviz
