@@ -8,8 +8,8 @@ on:
     branches: [ dev ]
 
 env:
-  NODE_VERSION: '18'
-  PYTHON_VERSION: '3.10'
+  NODE_VERSION: '16'
+  PYTHON_VERSION: '3.7'
 
 permissions:
   contents: read
@@ -18,26 +18,16 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v2-beta
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Upgrade pip
-        run: pip install --upgrade pip
-
-      - name: Upgrade SetupTools
-        run: pip install --upgrade setuptools
-
-      - name: Install Python deps
+      - name: Install python deps
         run: pip install -r requirements.txt -r dev-requirements.txt -e.
-
       - name: Install node deps
         run: npm ci
-
       - name: Check types
         run: npx pyright
