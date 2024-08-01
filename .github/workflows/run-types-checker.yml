@@ -40,19 +40,19 @@ jobs:
         run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckan
         continue-on-error: true
 
-      - name: Check types for ckanext-abc_dataviz
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-abc_dataviz
+      - name: Check types for ckanext-hdx_dataviz
+        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_dataviz
         continue-on-error: true
 
-      - name: Check types for ckanext-abc_hxl_preview
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-abc_hxl_preview
+      - name: Check types for ckanext-hdx_hxl_preview
+        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_hxl_preview
         continue-on-error: true
 
-      - name: Check types for ckanext-abc_office_preview
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-abc_office_preview
+      - name: Check types for ckanext-hdx_office_preview
+        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_office_preview
         continue-on-error: true
 
-      - name: Check types for ckanext-abc_org_group
+      - name: Check types for ckanext-hdx_org_group
         run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_org_group
         continue-on-error: true
 
