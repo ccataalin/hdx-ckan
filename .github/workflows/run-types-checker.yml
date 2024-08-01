@@ -11,9 +11,6 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
 
-    env:
-      CONFIG_FILE: /srv/ckan/pyproject.toml
-
     steps:
       - uses: actions/checkout@v3
       - name: Building CKAN docker image
@@ -37,57 +34,57 @@ jobs:
           "
 
       - name: Check types for CKAN
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckan
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckan
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_dataviz
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_dataviz
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_dataviz
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_hxl_preview
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_hxl_preview
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_hxl_preview
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_office_preview
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_office_preview
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_office_preview
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_org_group
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_org_group
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_org_group
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_package
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_package
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_package
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_pages
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_pages
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_pages
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_search
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_search
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_search
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_service_checker
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_service_checker
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_service_checker
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_theme
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_theme
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_theme
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_user_extra
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_user_extra
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_user_extra
         continue-on-error: true
 
       - name: Check types for ckanext-hdx_users
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-hdx_users
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-hdx_users
         continue-on-error: true
 
       - name: Check types for ckanext-sitemap
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-sitemap
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-sitemap
         continue-on-error: true
 
       - name: Check types for ckanext-ytp-request
-        run: docker-compose exec -T ckan pyright -p ${{ env.CONFIG_FILE }} /srv/ckan/ckanext-ytp-request
+        run: docker-compose exec -T ckan pyright /srv/ckan/ckanext-ytp-request
         continue-on-error: true
