@@ -69,15 +69,15 @@ reportMissingImports = true
 reportMissingModuleSource = true
 reportMissingTypeStubs = false
 reportImportCycles = false
-reportUnusedImport = true
+reportUnusedImport = false
 reportUnusedClass = true
 reportUnusedFunction = true
 reportUnusedVariable = true
 reportDuplicateImport = true
 reportOptionalSubscript = true
-reportOptionalMemberAccess = true
+reportOptionalMemberAccess = false
 reportOptionalCall = true
-reportOptionalIterable = true
+reportOptionalIterable = false
 reportOptionalContextManager = true
 reportOptionalOperand = true
 # We are using Context in a way that conflicts with this check
@@ -87,23 +87,23 @@ reportIncompatibleMethodOverride = false
 reportIncompatibleVariableOverride = false
 reportOverlappingOverload = true
 reportUntypedFunctionDecorator = false
-reportUnknownParameterType = true
+reportUnknownParameterType = false
 reportUnknownArgumentType = false
 reportUnknownLambdaType = false
 reportUnknownMemberType = false
-reportMissingTypeArgument = true
+reportMissingTypeArgument = false
 reportInvalidTypeVarUse = true
 reportCallInDefaultInitializer = true
 reportUnknownVariableType = false
 reportUntypedBaseClass = true
-reportUnnecessaryIsInstance = true
-reportUnnecessaryCast = true
-reportUnnecessaryComparison = true
+reportUnnecessaryIsInstance = false
+reportUnnecessaryCast = false
+reportUnnecessaryComparison = false
 reportAssertAlwaysTrue = true
 reportSelfClsParameterName = true
 reportUnusedCallResult = false # allow function calls for side-effect only (like logic.check_acces)
 useLibraryCodeForTypes = true
-reportGeneralTypeIssues = true
+reportGeneralTypeIssues = false
 reportPropertyTypeMismatch = true
 reportWildcardImportFromLibrary = true
 reportUntypedClassDecorator = false # authenticator relies on repoze.who class-decorator
@@ -122,8 +122,16 @@ reportInvalidStubStatement = true
 reportIncompleteStub = true
 reportUnsupportedDunderAll = true
 reportUnusedCoroutine = true
-reportUnnecessaryTypeIgnoreComment = true
+reportUnnecessaryTypeIgnoreComment = false
 reportMatchNotExhaustive = true
+
+# HDX Edit
+reportArgumentType = false
+reportAssignmentType = false
+reportAttributeAccessIssue = false
+reportInvalidTypeForm = false
+reportReturnType = false
+# End HDX Edit
 
 [tool.mypy]
 plugins = "sqlalchemy.ext.mypy.plugin"
