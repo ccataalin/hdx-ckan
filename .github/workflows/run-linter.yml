@@ -10,33 +10,61 @@ on:
 jobs:
   linter:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        directories:
-          - ckanext-abc_dataviz
-          - ckanext-abc_hxl_preview
-          - ckanext-abc_office_preview
-          - ckanext-abc_org_group
-          - ckanext-abc_package
-          - ckanext-abc_pages
-          - ckanext-abc_search
-          - ckanext-abc_service_checker
-          - ckanext-abc_theme
-          - ckanext-abc_user_extra
-          - ckanext-abc_users
-          - ckanext-sitemap
-          - ckanext-ytp-request
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Install ruff linter
-        run: |
-          pip install ruff
+        run: pip install ruff
 
-      - name: Run ruff linter for ${{ matrix.directories }}
-        run: |
-          ruff check ${{ matrix.directories }}
+      - name: Run ruff linter for ckanext-hdx_dataviz
+        run: ruff check ckanext-hdx_dataviz
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_hxl_preview
+        run: ruff check ckanext-hdx_hxl_preview
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_office_preview
+        run: ruff check ckanext-hdx_office_preview
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_org_group
+        run: ruff check ckanext-hdx_org_group
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_package
+        run: ruff check ckanext-hdx_package
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_pages
+        run: ruff check ckanext-hdx_pages
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_search
+        run: ruff check ckanext-hdx_search
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_service_checker
+        run: ruff check ckanext-hdx_service_checker
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_theme
+        run: ruff check ckanext-hdx_theme
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_user_extra
+        run: ruff check ckanext-hdx_user_extra
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-hdx_users
+        run: ruff check ckanext-hdx_users
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-sitemap
+        run: ruff check ckanext-sitemap
+        continue-on-error: true
+
+      - name: Run ruff linter for ckanext-ytp-request
+        run: ruff check ckanext-ytp-request
         continue-on-error: true
