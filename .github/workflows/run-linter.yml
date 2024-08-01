@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CONFIG_FILE: /srv/ckan/pyproject.toml
+      CONFIG_FILE: pyproject.toml
 
     steps:
       - name: Checkout code
